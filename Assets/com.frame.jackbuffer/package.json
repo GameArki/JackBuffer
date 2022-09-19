@@ -1,0 +1,23 @@
+{
+  "name": "com.frame.jackbuffer",
+  "version": "1.0.0",
+  "description": "二进制数据序列化协议, 含自动生成接口",
+  "displayName": "JackFrame.JackBuffer",
+  "unity": "2019.4",
+  "author": {
+    "name": "杰克有茶",
+    "email": "chenwansal1@163.com",
+    "url": "http://www.utea.fun"
+  },
+  "changelogUrl": "",
+  "dependencies": {},
+  "documentationUrl": "",
+  "hideInEditor": false,
+  "keywords": [
+    "jackframe"
+  ],
+  "license": "",
+  "licensesUrl": "",
+  "samples": [],
+  "unityRelease": "16f1"
+}

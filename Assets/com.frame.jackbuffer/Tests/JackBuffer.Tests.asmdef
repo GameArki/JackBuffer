@@ -1,0 +1,23 @@
+{
+    "name": "JackBuffer.Tests",
+    "rootNamespace": "",
+    "references": [
+        "JackBuffer.Runtime",
+        "JackBuffer.Editor",
+        "JackFrame.BufferIO",
+        "UnityEngine.TestRunner"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
