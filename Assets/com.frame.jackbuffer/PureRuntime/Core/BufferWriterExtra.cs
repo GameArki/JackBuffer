@@ -5,7 +5,7 @@ namespace JackBuffer {
 
     public static class BufferWriterExtra {
 
-        public static void WriteMessage<T>(byte[] dst, IJackMessage<T> data, ref int offset) {
+        public static void WriteMessage<T>(byte[] dst, T data, ref int offset)  where T : IJackMessage<T> {
             if (data != null) {
                 byte[] b = data.ToBytes();
                 ushort count = (ushort)b.Length;
@@ -17,7 +17,7 @@ namespace JackBuffer {
             }
         }
 
-        public static void WriteMessageArr<T>(byte[] dst, IJackMessage<T>[] data, ref int offset) {
+        public static void WriteMessageArr<T>(byte[] dst, T[] data, ref int offset)  where T : IJackMessage<T> {
             if (data != null) {
                 ushort count = (ushort)data.Length;
                 BufferWriter.WriteUInt16(dst, count, ref offset);
