@@ -178,18 +178,19 @@ namespace JackBuffer.Editor {
                             throw new Exception($"不可循环依赖: {fieldType}");
                         }
 
+                        const string READER_EXTRA = nameof(BufferReaderExtra) + ".";
                         if (fieldType.Contains("[]")) {
                             // 处理自定义类型数组
                             string trueType = fieldType.Replace("[]", "");
                             if (IsJackBufferObject(inputDir, trueType)) {
-                                return $"{fieldName} = " + READER + nameof(BufferReaderExtra.ReadMessageArr) + $"({SRC_PARAM_NAME}, () => new {trueType}(), ref {OFFSET_PARAM_NAME});";
+                                return $"{fieldName} = " + READER_EXTRA + nameof(BufferReaderExtra.ReadMessageArr) + $"({SRC_PARAM_NAME}, () => new {trueType}(), ref {OFFSET_PARAM_NAME});";
                             } else {
                                 throw new Exception($"未处理该类型: {fieldType}");
                             }
                         } else {
                             // 处理单自定义类型
                             if (IsJackBufferObject(inputDir, fieldType)) {
-                                return $"{fieldName} = " + READER + nameof(BufferReaderExtra.ReadMessage) + $"({SRC_PARAM_NAME}, () => new {fieldType}(), ref {OFFSET_PARAM_NAME});";
+                                return $"{fieldName} = " + READER_EXTRA + nameof(BufferReaderExtra.ReadMessage) + $"({SRC_PARAM_NAME}, () => new {fieldType}(), ref {OFFSET_PARAM_NAME});";
                             } else {
                                 throw new Exception($"未处理该类型: {fieldType}");
                             }
