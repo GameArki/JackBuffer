@@ -101,16 +101,17 @@ namespace JackBuffer.Editor {
                             throw new Exception($"不可循环依赖: {fieldType}");
                         }
 
+                        const string WRITER_EXTRA = nameof(BufferWriterExtra) + ".";
                         if (fieldType.Contains("[]")) {
                             string trueType = fieldType.Replace("[]", "");
                             if (IsJackBufferObject(inputDir, trueType)) {
-                                return WRITER + nameof(BufferWriterExtra.WriteMessageArr) + writeSuffix;
+                                return WRITER_EXTRA + nameof(BufferWriterExtra.WriteMessageArr) + writeSuffix;
                             } else {
                                 throw new Exception($"未处理该类型: {fieldType}");
                             }
                         } else {
                             if (IsJackBufferObject(inputDir, fieldType)) {
-                                return WRITER + nameof(BufferWriterExtra.WriteMessage) + writeSuffix;
+                                return WRITER_EXTRA + nameof(BufferWriterExtra.WriteMessage) + writeSuffix;
                             } else {
                                 throw new Exception($"未处理该类型: {fieldType}");
                             }
@@ -313,10 +314,8 @@ namespace JackBuffer.Editor {
                                 string s = $"if ({fieldName} != null)" + "{"
                                         + $"for (int i = 0; i < {fieldName}.Length; i += 1)" + "{"
                                             + $"var {CHILD} = {fieldName}[i];"
-                                            + $"if ({CHILD} != null)" + "{"
-                                                + $"{COUNT_VAR} += {CHILD}." + GET_EVELUATED_SIZE_METHOD_NAME + $"(out bool _cb_{fieldName});"
-                                                + CERTAIN_PARAM_NAME + "&=" + $"_cb_{fieldName};"
-                                                + "}"
+                                            + $"{COUNT_VAR} += {CHILD}." + GET_EVELUATED_SIZE_METHOD_NAME + $"(out bool _cb_{fieldName});"
+                                            + CERTAIN_PARAM_NAME + "&=" + $"_cb_{fieldName};"
                                             + "}"
                                         + "}";
                                 evaluatedObjectLine.AppendLine(s);
