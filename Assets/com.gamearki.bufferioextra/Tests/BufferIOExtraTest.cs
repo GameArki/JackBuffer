@@ -1,13 +1,9 @@
-using System;
-using UnityEngine;
-using UnityEngine.TestTools;
 using NUnit.Framework;
-using JackFrame;
-using JackBuffer.Sample;
+using GameArki.BufferIOExtra.Sample;
 
-namespace JackBuffer.Tests {
+namespace GameArki.BufferIOExtra.Tests {
 
-    public class JackBufferTest {
+    public class BufferIOExtraTest {
 
         [Test]
         public void TestFixed() {

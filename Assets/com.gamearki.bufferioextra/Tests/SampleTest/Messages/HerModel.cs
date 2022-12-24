@@ -1,8 +1,6 @@
 using System;
-using JackBuffer;
-using JackFrame;
 
-namespace JackBuffer.Sample
+namespace GameArki.BufferIOExtra.Sample
 {
     [JackMessageObject]
     public class HerModel : IJackMessage<HerModel>

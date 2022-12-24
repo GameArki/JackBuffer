@@ -1,27 +1,18 @@
 {
   "dependencies": {
-    "com.frame.bufferio": {
-      "version": "ssh://git@github.com/chenwansal/BufferIO.git?path=/Assets/com.frame.bufferio#main",
+    "com.gamearki.bufferio": {
+      "version": "ssh://git@github.com/gamearki/BufferIO.git?path=/Assets/com.gamearki.bufferio#main",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "c16539ec086f1101fa4e130bacb240c069879719"
+      "hash": "e2fe0cf4ab36d5704e6e090dbd1eb9d79106e178"
     },
-    "com.frame.jackast": {
-      "version": "ssh://git@github.com/chenwansal/JackAST.git?path=/Assets/com.frame.jackast#main",
+    "com.gamearki.csharpgen": {
+      "version": "ssh://git@github.com/gamearki/ArkiCSharpGen.git?path=/Assets/com.gamearki.csharpgen#main",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "e8f71872c6132281f1168b1500727738f8cb7ee2"
-    },
-    "com.frame.upmaster": {
-      "version": "ssh://git@github.com/chenwansal/UPMaster.git?path=/Assets/com.frame.upmaster#main",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.unity.nuget.newtonsoft-json": "2.0.0"
-      },
-      "hash": "84bf2526ef1c8a7a64aefbae50791e294711f3e8"
+      "hash": "8362f22e45448663707006249b0009da4f0a8087"
     },
     "com.unity.collab-proxy": {
       "version": "1.15.15",
@@ -81,13 +72,6 @@
     "com.unity.ide.vscode": {
       "version": "1.2.5",
       "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://packages.unity.cn"
-    },
-    "com.unity.nuget.newtonsoft-json": {
-      "version": "2.0.0",
-      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.cn"

@@ -1,20 +1,20 @@
 {
-  "name": "com.frame.jackbuffer",
-  "version": "1.0.0",
+  "name": "com.gamearki.bufferioextra",
+  "version": "1.1.0",
   "description": "二进制数据序列化协议, 含自动生成接口",
-  "displayName": "JackFrame.JackBuffer",
+  "displayName": "GameArki.BufferIOExtra",
   "unity": "2019.4",
   "author": {
-    "name": "杰克有茶",
+    "name": "GameArki",
     "email": "chenwansal1@163.com",
-    "url": "http://www.utea.fun"
+    "url": "https://github.com/GameArki"
   },
   "changelogUrl": "",
   "dependencies": {},
   "documentationUrl": "",
   "hideInEditor": false,
   "keywords": [
-    "jackframe"
+    "GameArki"
   ],
   "license": "",
   "licensesUrl": "",

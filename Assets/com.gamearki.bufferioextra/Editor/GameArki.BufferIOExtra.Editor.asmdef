@@ -1,8 +1,10 @@
 {
-    "name": "JackBuffer.Runtime",
+    "name": "GameArki.BufferIOExtra.Editor",
     "rootNamespace": "",
     "references": [
-        "JackFrame.BufferIO"
+        "GUID:72e53efc3db839d40ab26cd2f7fe819d",
+        "GUID:1c4f517fe4e2f1144a9af5434b1fe0e2",
+        "GUID:e265d67c03feb3243bf7d85067f9df99"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -10,7 +12,9 @@
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,
-    "defineConstraints": [],
+    "defineConstraints": [
+        "UNITY_EDITOR"
+    ],
     "versionDefines": [],
     "noEngineReferences": true
 }

@@ -2,13 +2,11 @@ using System;
 using System.Text;
 using System.IO;
 using System.Collections.Generic;
-using System.Reflection;
-using JackAST;
-using JackFrame;
+using GameArki.CSharpGen;
 
-namespace JackBuffer.Editor {
+namespace GameArki.BufferIOExtra.Editor {
 
-    public class JackBufferGenerator {
+    public class BufferExtraGenerator {
 
         const string WRITE_TO_METHOD_NAME = "WriteTo";
         const string FROM_BYTES_METHOD_NAME = "FromBytes";
@@ -49,8 +47,7 @@ namespace JackBuffer.Editor {
                 classEditor.InheritInterface($"IJackMessage<{classEditor.GetClassName()}>");
 
                 classEditor.AddUsing(nameof(System));
-                classEditor.AddUsing(nameof(JackBuffer));
-                classEditor.AddUsing(nameof(JackFrame));
+                classEditor.AddUsing(nameof(GameArki) + "." + nameof(GameArki.BufferIOExtra));
 
                 File.WriteAllText(value, classEditor.Generate());
 
@@ -104,13 +101,13 @@ namespace JackBuffer.Editor {
                         const string WRITER_EXTRA = nameof(BufferWriterExtra) + ".";
                         if (fieldType.Contains("[]")) {
                             string trueType = fieldType.Replace("[]", "");
-                            if (IsJackBufferObject(inputDir, trueType)) {
+                            if (IsBufferObject(inputDir, trueType)) {
                                 return WRITER_EXTRA + nameof(BufferWriterExtra.WriteMessageArr) + writeSuffix;
                             } else {
                                 throw new Exception($"未处理该类型: {fieldType}");
                             }
                         } else {
-                            if (IsJackBufferObject(inputDir, fieldType)) {
+                            if (IsBufferObject(inputDir, fieldType)) {
                                 return WRITER_EXTRA + nameof(BufferWriterExtra.WriteMessage) + writeSuffix;
                             } else {
                                 throw new Exception($"未处理该类型: {fieldType}");
@@ -182,14 +179,14 @@ namespace JackBuffer.Editor {
                         if (fieldType.Contains("[]")) {
                             // 处理自定义类型数组
                             string trueType = fieldType.Replace("[]", "");
-                            if (IsJackBufferObject(inputDir, trueType)) {
+                            if (IsBufferObject(inputDir, trueType)) {
                                 return $"{fieldName} = " + READER_EXTRA + nameof(BufferReaderExtra.ReadMessageArr) + $"({SRC_PARAM_NAME}, () => new {trueType}(), ref {OFFSET_PARAM_NAME});";
                             } else {
                                 throw new Exception($"未处理该类型: {fieldType}");
                             }
                         } else {
                             // 处理单自定义类型
-                            if (IsJackBufferObject(inputDir, fieldType)) {
+                            if (IsBufferObject(inputDir, fieldType)) {
                                 return $"{fieldName} = " + READER_EXTRA + nameof(BufferReaderExtra.ReadMessage) + $"({SRC_PARAM_NAME}, () => new {fieldType}(), ref {OFFSET_PARAM_NAME});";
                             } else {
                                 throw new Exception($"未处理该类型: {fieldType}");
@@ -310,7 +307,7 @@ namespace JackBuffer.Editor {
 
                         if (fieldType.Contains("[]")) {
                             string trueType = fieldType.Replace("[]", "");
-                            if (IsJackBufferObject(inputDir, trueType)) {
+                            if (IsBufferObject(inputDir, trueType)) {
                                 const string CHILD = "__child";
                                 string s = $"if ({fieldName} != null)" + "{"
                                         + $"for (int i = 0; i < {fieldName}.Length; i += 1)" + "{"
@@ -325,7 +322,7 @@ namespace JackBuffer.Editor {
                                 throw new Exception($"未处理该类型: {fieldType}");
                             }
                         } else {
-                            if (IsJackBufferObject(inputDir, fieldType)) {
+                            if (IsBufferObject(inputDir, fieldType)) {
                                 string s = COUNT_VAR + $" += {fieldName}.{GET_EVELUATED_SIZE_METHOD_NAME}(out bool _b{fieldName});\r\n";
                                 s += CERTAIN_PARAM_NAME + "&=" + $"_b{fieldName};";
                                 evaluatedObjectLine.AppendLine($"if ({fieldName} != null) " + "{");
@@ -386,7 +383,7 @@ namespace JackBuffer.Editor {
 
         }
 
-        static bool IsJackBufferObject(string inputDir, string fieldType) {
+        static bool IsBufferObject(string inputDir, string fieldType) {
             string filePath = FindFileWithExt(inputDir, fieldType, "*.cs");
             if (string.IsNullOrEmpty(filePath)) {
                 throw new Exception($"找不到代码文件: {fieldType}.cs");

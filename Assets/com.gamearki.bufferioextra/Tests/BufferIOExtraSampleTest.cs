@@ -1,12 +1,9 @@
-using System;
-using UnityEngine;
-using UnityEngine.TestTools;
 using NUnit.Framework;
-using JackBuffer.Sample;
+using GameArki.BufferIOExtra.Sample;
 
-namespace JackBuffer.Tests {
+namespace GameArki.BufferIOExtra.Tests {
 
-    public class JackBufferSampleTest {
+    public class BufferIOExtraSampleTest {
 
         [Test]
         public void TestRun() {

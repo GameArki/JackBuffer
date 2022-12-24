@@ -1,8 +1,7 @@
 using System;
-using JackBuffer;
-using JackFrame;
+using GameArki.BufferIOExtra;
 
-namespace JackBuffer.Sample
+namespace GameArki.BufferIOExtra.Sample
 {
     [JackMessageObject]
     public struct MyModel : IJackMessage<MyModel>
@@ -187,11 +186,8 @@ namespace JackBuffer.Sample
                 for (int i = 0; i < herModelArr.Length; i += 1)
                 {
                     var __child = herModelArr[i];
-                    if (__child != null)
-                    {
-                        count += __child.GetEvaluatedSize(out bool _cb_herModelArr);
-                        isCertain &= _cb_herModelArr;
-                    }
+                    count += __child.GetEvaluatedSize(out bool _cb_herModelArr);
+                    isCertain &= _cb_herModelArr;
                 }
             }
 

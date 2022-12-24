@@ -1,7 +1,6 @@
 using System;
-using JackFrame;
 
-namespace JackBuffer {
+namespace GameArki.BufferIOExtra {
 
     public static class BufferReaderExtra {
 

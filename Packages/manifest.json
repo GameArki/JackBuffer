@@ -41,8 +41,7 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0",
-		"com.frame.upmaster":"ssh://git@github.com/chenwansal/UPMaster.git?path=/Assets/com.frame.upmaster#main",
-		"com.frame.bufferio":"ssh://git@github.com/chenwansal/BufferIO.git?path=/Assets/com.frame.bufferio#main",
-		"com.frame.jackast":"ssh://git@github.com/chenwansal/JackAST.git?path=/Assets/com.frame.jackast#main"
+		"com.gamearki.bufferio":"ssh://git@github.com/gamearki/BufferIO.git?path=/Assets/com.gamearki.bufferio#main",
+		"com.gamearki.csharpgen":"ssh://git@github.com/gamearki/ArkiCSharpGen.git?path=/Assets/com.gamearki.csharpgen#main"
   }
 }

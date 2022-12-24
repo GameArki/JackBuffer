@@ -11,7 +11,7 @@ public struct MyModel {
 ```
 ==== STEP 2 挂上特性 ====
 ```
-using JackBuffer;
+using GameArki.BufferIOExtra;
 
 [JackMessageObject]
 public struct MyModel {
@@ -21,7 +21,7 @@ public struct MyModel {
 ==== STEP 3 调用生成 ====
 ```
 string messageInputDir = "MyModel.cs 所在的目录";
-JackBufferGenerator.GenModel(messageInputDir);
+GameArki.BufferIOExtraGenerator.GenModel(messageInputDir);
 
 // 程序会在 MyModel.cs 上自动添加序列化方法以及继承一个 IJackMessage<T> 接口
 // IJackMessage<T> 接口主要的方法有三个:
@@ -41,4 +41,4 @@ MyModel newModel = new Model();
 int offset = 0;
 newModel.FromBytes(data, ref offset); // newModel.value == 3
 ```
-更多细节可见 JackBuffer/Sample 目录和 Tests 目录
+更多细节可见 GameArki.BufferIOExtra/Sample 目录和 Tests 目录

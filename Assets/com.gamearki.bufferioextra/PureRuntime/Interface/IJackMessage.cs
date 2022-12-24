@@ -1,5 +1,5 @@
 
-namespace JackBuffer {
+namespace GameArki.BufferIOExtra {
 
     public interface IJackMessage<T> {
 

@@ -1,10 +1,10 @@
 {
-    "name": "JackBuffer.Tests",
+    "name": "GameArki.BufferIOExtra.Tests",
     "rootNamespace": "",
     "references": [
-        "JackBuffer.Runtime",
-        "JackBuffer.Editor",
-        "JackFrame.BufferIO",
+        "GameArki.BufferIOExtra.Editor",
+        "GameArki.BufferIO",
+        "GameArki.BufferIOExtra",
         "UnityEngine.TestRunner"
     ],
     "includePlatforms": [],
